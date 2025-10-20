@@ -68,3 +68,6 @@ Create a new query to find total revenue by browser for Japenese customers that 
 Modify the query to only show one instance for each year with the respective year-over-year growth % rather than all of the month, year pairs with repeating growth %.
 
 Create an interactive plotly chart to display accesories revenue by traffic source.
+
+## Leonard
+None provided.
