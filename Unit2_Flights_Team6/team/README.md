@@ -9,28 +9,22 @@ Questions we're trying to answer:
 2. Can we classify when a flight will be diverted to better be prepared?
 
 Steps:
-Download the dataset from the link
-
-Create a GCS bucket and upload the dataset
-
-Create a dataset in BigQuery and create a table using the GCS bucket with the dataset
+1. Download the dataset from the link
+2. Create a GCS bucket and upload the dataset
+3. Create a dataset in BigQuery and create a table using the GCS bucket with the dataset
 
 Linear Regression:
-Pick 5 features to train a Linear Regression Model with to estimate arrival delay
-
-Investigate the MAE
-
-Create 2 Explain_Predict examples to test your model
+1. Pick 5 features to train a Linear Regression Model with to estimate arrival delay
+2. Investigate the MAE
+3. Create 2 Explain_Predict examples to test your model
 
 Classification:
-Train a classification model to predict flight delay using 5 features
-
-Retrain the model using your own decided cutoff threshold
-
-Compare the performance
+1. Train a classification model to predict flight delay using 5 features
+2. Retrain the model using your own decided cutoff threshold
+3. Compare the performance
 
 Feature Engineering:
-Engineer a new feature and compare performance
+1. Engineer a new feature and compare performance
 
 Limit:
-Take a limited sample of the data and compare it to the full run model. What do you notice?
+1. Take a limited sample of the data and compare it to the full run model. What do you notice?
