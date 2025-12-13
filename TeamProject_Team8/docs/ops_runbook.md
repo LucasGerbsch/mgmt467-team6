@@ -65,7 +65,7 @@ Run Query Template 3 after changing the placeholder project ID to yours to join 
 
 Run Query Template 4 after changing the placeholder project ID to yours, this will prepare a new table for streaming.
 
-Next, we return to the notebook and run all of the cells under the ML model section. Remember to change the project ID to yours. Once you’ve run all of the ML model cells, your model is now trained.
+Next, we return to the notebook and run all of the cells under the ML model section. Remember to change the project ID to yours. Once you’ve run all of the ML model cells, your model is now trained. Use ML.EVALUATE to evaluate the model performance.
 
 Now we begin the streaming pipeline creation. In GCP, go to Pub/Sub -> Topics and click “Create topic.” Name the topic “citibike-weather-topic” with default settings and create. You should have a topic called “citibike-weather-topic” and a subscription called “citibike-weather-sub.” Click on the subscription and hit edit. Select the delivery type as pull, set message retention to 7 days, and set acknowledgement deadline to 10 seconds.
 
@@ -78,6 +78,8 @@ Search for “Cloud Scheduler” in GCP and create a job. Make the job name “o
 While your Dataflow and Cloud Scheduler jobs are running, you should see new 7 day forecast data being ingested into your raw streaming table every minute.
 
 Run Query 5 Template after changing the placeholder project ID to yours to create our curated streaming table, put it into our ML model, and finally create the final table with the predicted trip daily trip values with the respective forecast data. This table is called “trips_forecast” and you can use it in Looker Studio to make a real-time analytics dashboard.
+
+Return to the Colab notebook and go to the Pub/Sub Prediction Testing section. Run the cells to make sure that the tables look logical and use ML.EXPLAIN_PREDICT to investigate some of our predictions from our live streaming data.
 
 To stop the pipeline, select the job in Dataflow and hit the stop button at the top and select “Drain.” Next, go to Cloud Scheduler and select the checkbox next to the job and hit pause.
 
