@@ -13,14 +13,14 @@ FROM `ProjectIDPlaceholder.bike_raw.weather_forecast_stream`;
 
 CREATE OR REPLACE TABLE `ProjectIDPlaceholder.bike_curated.trips_forecast` AS
 WITH
-  -- Find the most recent ingest batch
+  -- Most recent ingest batch
   latest_batch AS (
     SELECT
       MAX(ingest_timestamp) AS latest_ts
     FROM `ProjectIDPlaceholder.bike_curated.weather_forecast_features`
   ),
 
-  -- Only keep rows from that latest ingest (this should be the current 7-day forecast)
+  -- Only rows from that latest ingest (current 7-day forecast)
   features AS (
     SELECT
       f.*
@@ -29,34 +29,37 @@ WITH
     WHERE f.ingest_timestamp = latest_ts
   ),
 
-  -- Member-trips predictions
+  -- Member-trips predictions (clamped at 0)
   member AS (
     SELECT
       forecast_date,
-      predicted_member_trips
+      GREATEST(predicted_member_trips, 0) AS predicted_member_trips
     FROM ML.PREDICT(
       MODEL `ProjectIDPlaceholder.bike_curated.bike_demand_member_model`,
       (SELECT * FROM features)
     )
   ),
 
-  -- Casual-trips predictions
+  -- Casual-trips predictions (clamped at 0)
   casual AS (
     SELECT
       forecast_date,
-      predicted_casual_trips
+      GREATEST(predicted_casual_trips, 0) AS predicted_casual_trips
     FROM ML.PREDICT(
       MODEL `ProjectIDPlaceholder.bike_curated.bike_demand_casual_model`,
       (SELECT * FROM features)
     )
   )
 
--- Final table: weather + features + ingest_timestamp + predictions
+-- Final table: weather + ingest_timestamp + predictions
 SELECT
-  f.*,  -- includes ingest_timestamp + all weather features
+  f.*,
   m.predicted_member_trips,
   c.predicted_casual_trips,
-  m.predicted_member_trips + c.predicted_casual_trips AS predicted_total_trips
+  GREATEST(
+    m.predicted_member_trips + c.predicted_casual_trips,
+    0
+  ) AS predicted_total_trips
 FROM features f
 LEFT JOIN member m USING (forecast_date)
 LEFT JOIN casual c USING (forecast_date)
