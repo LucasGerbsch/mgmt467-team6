@@ -57,9 +57,9 @@ which is NYC CitiBike’s website bucket that contains ZIP files for the years 2
 
 16. Upload the 5 queries from the Runops Files Subdirectory in GitHub to BigQuery by clicking the 3 dots next to the Queries dropdown in BigQuery and then selecting “Upload SQL Query” and using the Browse file upload option.
 
-17. Run Query Template 1 to create our full raw CitiBikes data table and the curated table. Don’t forget to change the placeholder project ID to your project ID. We have a quality check at the bottom to ensure that our min and max date are within our selected range (2022-2024).
+17. Run Query Template 1 to create our full raw CitiBikes data table and the curated table. Don’t forget to change the placeholder project ID to your project ID and the placeholder bucket id to your bucket ID. We have a quality check at the bottom to ensure that our min and max date are within our selected range (2022-2024).
 
-18. Run Query Template 2 after changing the placeholder project ID to yours to create our full raw historical forecast table and curated table. We have some sanity checks at the bottom to ensure our values are reasonable.
+18. Run Query Template 2 after changing the placeholder project ID & bucket ID to yours to create our full raw historical forecast table and curated table. We have some sanity checks at the bottom to ensure our values are reasonable.
 
 19. Run Query Template 3 after changing the placeholder project ID to yours to join our CitiBike and forecast curated tables into one. Our training table for our ML model is now complete.
 
