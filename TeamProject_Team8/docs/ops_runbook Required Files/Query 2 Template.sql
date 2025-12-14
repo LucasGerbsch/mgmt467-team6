@@ -16,7 +16,7 @@ CREATE OR REPLACE EXTERNAL TABLE `ProjectIDPlaceholder.bike_raw.weather_daily_ex
 )
 OPTIONS (
   format = 'CSV',
-  uris = ['gs://ProjectIDPlaceholder/weather/raw/open_meteo_daily_monthly/*_us_units.csv'],
+  uris = ['gs://BucketIDPlaceholder/weather/raw/open_meteo_daily_monthly/*_us_units.csv'],
   skip_leading_rows = 1
 );
 
@@ -57,4 +57,5 @@ SELECT
   AVG(temperature_2m_min) AS avg_tmin_f
 FROM `ProjectIDPlaceholder.bike_curated.weather_daily`
 GROUP BY year, month
+
 ORDER BY year, month;
