@@ -8,25 +8,25 @@ Before we begin, please download the Runops Template Notebook and all 5 Queries 
 
 2. Ensure the following APIs are enabled by going to APIs and Services -> Library:
 
-BigQuery API
+      BigQuery API
 
-BigQuery Storage API
+      BigQuery Storage API
 
-Cloud Storage API
+      Cloud Storage API
 
-Cloud Pub/Sub API
+      Cloud Pub/Sub API
 
-Dataflow API
+      Dataflow API
 
-Cloud Run Admin API
+      Cloud Run Admin API
 
-Cloud Scheduler API
+      Cloud Scheduler API
 
-Cloud Build API
+      Cloud Build API
 
-Artifact Registry API
+      Artifact Registry API
 
-Cloud Logging API/ Cloud Monitoring API (Usually already enabled)
+      Cloud Logging API/ Cloud Monitoring API (Usually already enabled)
 
 3. Manually create 2 new Databases in BigQuery: One named “bike_raw” and one named “bike_curated.” Bike_raw will store our raw CitiBike, historical weather, and steaming forecast data while bike_curated will be used to store our curated tables.
 
