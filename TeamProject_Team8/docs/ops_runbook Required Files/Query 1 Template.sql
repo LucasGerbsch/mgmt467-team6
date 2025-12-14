@@ -16,9 +16,9 @@ CREATE OR REPLACE EXTERNAL TABLE `ProjectIDPlaceholder.bike_raw.citibike_trips_e
 OPTIONS (
   format = 'CSV',
   uris = [
-    'gs://ProjectIDPlaceholder/citibike/raw/year=2022/*',
-    'gs://ProjectIDPlaceholder/citibike/raw/year=2023/*',
-    'gs://ProjectIDPlaceholder/citibike/raw/year=2024/*'
+    'gs://BucketIDPlaceholder/citibike/raw/year=2022/*',
+    'gs://BucketIDPlaceholder/citibike/raw/year=2023/*',
+    'gs://BucketIDPlaceholder/citibike/raw/year=2024/*'
   ],
   skip_leading_rows = 1
 );
@@ -38,4 +38,5 @@ GROUP BY date;
 
 
 SELECT MIN(date) min_date, MAX(date) max_date, COUNT(*) days
+
 FROM `ProjectIDPlaceholder.bike_curated.bike_daily`;
