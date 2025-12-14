@@ -7,7 +7,7 @@ import requests
 from google.cloud import pubsub_v1
 
 # Project + topic config
-PROJECT_ID = "mgmt-467-project-1"  
+PROJECT_ID = "ProjectIDPlaceholder"  
 TOPIC_ID = os.environ.get("TOPIC_ID", "citibike-weather-topic")
 
 
