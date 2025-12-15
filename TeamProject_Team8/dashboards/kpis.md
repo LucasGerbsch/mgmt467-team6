@@ -12,10 +12,10 @@ This graph shows a clear correlation between the forecast average temperature an
 This graph is a bar graph indicating the average number of total trips taken over the years of 2022-2024 for each day of the week. Across the board, the day with the least trips taken on average is Sunday, at 13011005 trips, then followed by Monday with 14897541 trips, with Saturday at a slight increase in number of rides, coming in at 14955335 trips. The most number of trips taken are during the weekdays, with Wednesdays having the highest trips, followed by Thursday, Friday, then Tuesdays right in the middle of the rankings. 
 
 We then have our Real-Time Streaming Dashboard, which has Predicted CitiBike Trip Data over the Next 7 Days.\
-As of 2025-12-13, 9:16 PM UTC the dashboard is displaying the following predicted metrics based on the 7 day forecast provided by the open-meteo API:\
-Total Predicted Casual Trips: 57744\
-Total Predicted Member Trips: 412279\
-Predicted Total Trips: 470023
+As of 2025-12-14, 8:46 PM UTC the dashboard is displaying the following predicted metrics based on the 7 day forecast provided by the open-meteo API:\
+Total Predicted Casual Trips: 54,920\
+Total Predicted Member Trips: 407,610\
+Predicted Total Trips: 462,530
 
 We can also see:
 - the distribution of Predicted Casual Trips over the Next 7 Days as a time-series bar chart indicating the number of predicted casual trips for each day
